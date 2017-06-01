@@ -1,14 +1,9 @@
 var VideoListEntryView = Backbone.View.extend({
 
-  initialize: function() {
-
-  },
-
   render: function() {
-    this.$el.html(this.template());
-    // console.log($('.video-list-entry-title').text(snippet.title));
-    // this.$el.find($('.video-list-entry-title')).text({model: snipppet});
-
+    this.$el.html(this.template(this.model.attributes));
+    let imgUrl = this.model.attributes.snippet.thumbnails.default.url;
+    this.$el.find('.media-object').attr('src', imgUrl);
     return this.$el;
   },
 
